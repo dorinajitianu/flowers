@@ -1,7 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
 <topic id="topic-1">
-    <title>Snowdrop</title>
+    <title>Sn<topic id="id_ty3_tfq_jnb">
+            <body>
+                <p>With just a little bit of care and preparation, any flower garden can be a
+                    vibrantly colored environment. Flowers can be selected for specific blooming
+                    seasons, colors and shapes. Both annual and <xref keyref="flowers.perennial"
+                        format="dita">perennial</xref> flower gardens can be planted depending on
+                    climate and specific needs.</p>
+                <p>With just a little bit of care and preparation, any flower garden can be a
+                    vibrantly colored environment. Flowers can be selected for specific blooming
+                    seasons, colors and shapes. Both annual and <xref keyref="flowers.perennial"
+                        format="dita">perennial</xref> flower gardens can be planted depending on
+                    climate and specific needs.</p>
+            </body>
+        </topic>owdrop</title>
     <body>
         <p><i>From Wikipedia, the free encyclopedia.</i></p>
         <p><b>Sn123owdrop</b><indexterm>flowers<indexterm>spring<indexterm>snowdrop</indexterm></indexterm></indexterm>
@@ -9,7 +22,20 @@
                 >genus</xref>
             <b>Galanthus</b>, a small genus of about 20 species in the family <b>Amaryllidaceae</b>;
             snowdrops are among the first <xref keyref="flowers.bulb" format="dita">bulbs</xref> to
-            bloom in spring, although certain species flower in late autumn and winter.</p>
+            bloom in</p>
+        <p>With just a little bit of care and preparation, any flower garden can be a vibrantly
+            colored environment. Flowers can be selected for specific blooming seasons, colors and
+            shapes. Both annual and <xref keyref="flowers.perennial" format="dita">perennial</xref>
+            flower gardens can be planted depending on climate and specific needs.</p>
+        <p>With just a little bit of care and preparation, any flower garden can be a vibrantly
+            colored environment. Flowers can be selected for specific blooming seasons, colors and
+            shapes. Both annual and <xref keyref="flowers.perennial" format="dita">perennial</xref>
+            flower gardens can be planted depending on climate and specific needs.</p>
+        <p>With just a little bit of care and preparation, any flower garden can be a vibrantly
+            colored environment. Flowers can be selected for specific blooming seasons, colors and
+            shapes. Both annual and <xref keyref="flowers.perennial" format="dita">perennial</xref>
+            flower gardens can be planted depending on climate and specific needs.</p>
+        <p> spring, although certain species flower in late autumn and winter.</p>
         <image href="../../images/Snowdrop.jpg" scale="75"/>
         <p><b>Galanthus nivalis</b> is the best-known and most widespread representative of the
             genus <b>Galanthus</b>. It is native to a large area of Europe, stretching from the

@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
 <concept id="conceptId">
-    <title>Summer Flowers</title>
+    <title>Summ<topic id="id_u2p_tfq_jnb">
+            <body>
+                <p>With just a little bit of care and preparation, any flower garden can be a
+                    vibrantly colored environment. Flowers can be selected for specific blooming
+                    seasons, colors and shapes. Both annual and <xref keyref="flowers.perennial"
+                        format="dita">perennial</xref> flower gardens can be planted depending on
+                    climate and specific needs.</p>
+                <p>With just a little bit of care and preparation, any flower garden can be a
+                    vibrantly colored environment. Flowers can be selected for specific blooming
+                    seasons, colors and shapes. Both annual and <xref keyref="flowers.perennial"
+                        format="dita">perennial</xref> flower gardens can be planted depending on
+                    climate and specific needs.</p>
+            </body>
+        </topic>er Flowers</title>
     <conbody>
         <p>Summer is the time of hot and warm weather. Floral growth is the best in the summer
             season. The Northern hemisphere experiences summer during June, July, August, while in
             Southern hemisphere during December - February.</p>
-        <p>Some of the flowers blooming in summer are: Alchemilla, Allium,
-            Alstromeria, Amaranthus, Baby's Breath, Bird of Paradise, Calla lily, Campanula,
-            Carnation, Chrysanthemum, Cockscomb, Cosmos, Dahlia, Delphinium, Dianthus, Didiscus,
-            Euphorbia, Foxglove, Freesia, Gardenia, Genista, Ginger, Gladiolus, Hallaconia, Heather,
-            Hydrangea, Hypericum, Iris, Kangaroo paw, Liatrus, Lilac, Casa Blanca Lily, Gloriosa
-            Lily, Star Gazer, Lisianthus.</p>
+        <p>Some of the flowers blooming in summe</p>
+        <p>With just a little bit of care and preparation, any flower garden can be a vibrantly
+            colored environment. Flowers can be selected for specific blooming seasons, colors and
+            shapes. Both annual and <xref keyref="flowers.perennial" format="dita">perennial</xref>
+            flower gardens can be planted depending on climate and specific needs.</p>
+        <p>With just a little bit of care and preparation, any flower garden can be a vibrantly
+            colored environment. Flowers can be selected for specific blooming seasons, colors and
+            shapes. Both annual and <xref keyref="flowers.perennial" format="dita">perennial</xref>
+            flower gardens can be planted depending on climate and specific needs.</p>
+        <p>r are: Alchemilla, Allium, Alstromeria, Amaranthus, Baby's Breath, Bird of Paradise,
+            Calla lily, Campanula, Carnation, Chrysanthemum, Cockscomb, Cosmos, Dahlia, Delphinium,
+            Dianthus, Didiscus, Euphorbia, Foxglove, Freesia, Gardenia, Genista, Ginger, Gladiolus,
+            Hallaconia, Heather, Hydrangea, Hypericum, Iris, Kangaroo paw, Liatrus, Lilac, Casa
+            Blanca Lily, Gloriosa Lily, Star Gazer, Lisianthus.</p>
     </conbody>
 </concept>

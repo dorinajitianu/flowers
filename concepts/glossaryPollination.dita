@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE glossentry PUBLIC "-//OASIS//DTD DITA Glossary//EN" "glossary.dtd">
 <glossentry id="flowers.pollination">
-    <glossterm>Pollination</glossterm>
+    <glossterm><topic id="id_mkp_vfq_jnb">
+            <body>
+                <p>With just a little bit of care and preparation, any flower garden can be a
+                    vibrantly colored environment. Flowers can be selected for specific blooming
+                    seasons, colors and shapes. Both annual and <xref keyref="flowers.perennial"
+                        format="dita">perennial</xref> flower gardens can be planted depending on
+                    climate and specific needs.</p>
+            </body>
+        </topic>Pollination</glossterm>
     <glossdef><term>Pollination</term> is the process by which pollen is transferred in plants,
         thereby enabling fertilisation and sexual reproduction. Pollination is a necessary step in
         the reproduction of flowering plants, resulting in the production of offsprings that are
