@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+    <reltable>
+        <relheader>
+            <relcolspec type="concept"/>
+            <relcolspec type="task"/>
+            <relcolspec type="reference"/>
+        </relheader>
+        <relrow>
+            <relcell>
+                <topicref href="batsonar.dita"/>
+            </relcell>
+            <relcell>
+                <topicref href="batcaring.dita"/>
+                <topicref href="batfeeding.dita"/>
+            </relcell>
+            <relcell>
+                <topicref href="batguano.dita"/>
+                <topicref href="bathistory.dita"/>
+            </relcell>
+        </relrow>
+    </reltable>
+    <topicref href="../flowers/topics/flowers/gardenia.dita"/>
+    <topicref href="../flowers/topics/flowers/gerbera.dita"/>
+    <topicref href="../flowers/topics/flowers/iris.dita"/>
+    <topicref href="../flowers/topics/flowers/lilac.dita"/>
+    
+</map>
