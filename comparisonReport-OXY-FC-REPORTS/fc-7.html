@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Comparison Report</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 1.5em;
+        z-index: 1;
+        font-size: 15px;
+        font-family: robotoregular, Arial, Helvetica, sans-serif;
+        line-height: 1.4em;
+        color: #5a5a5a;
+        background-color:#fff
+      }
+      table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%
+      }
+      td {
+        border: 1px solid #e5e5e5;
+        padding-left: 7px;
+        padding-right: 7px;
+        vertical-align: central
+      }
+
+      tr.file {
+        border-bottom:hidden;
+        background-color:#fafaef;
+        line-height:1.8em;
+        font-size:.9em
+      }
+      tr.file a {color:#555}
+
+      td.details {
+        padding-top:8px;
+        padding-bottom:8px;
+        color:#333
+      }
+
+      td.filePath {
+        word-break:break-all;
+        font-size:1.2em;
+      }
+      td.content {
+        word-break:break-all;
+        vertical-align:top
+      }
+      td.detailsStatus {
+        text-align:center;
+        padding:0px 0px 0px 0px;
+        width:25px;
+        overflow:hidden
+      }
+
+      .details tr {display:none}
+      .tableFilter {display:none}
+      .tableFilter + label ~ label {cursor:pointer}
+      .tableFilter:checked + label {color:black}
+
+      .filterLblText {margin-right:10px}
+      .filterLbl {
+        border:1px solid gray;
+        cursor:pointer
+      }
+      .allLbl {
+        background-color:#f5f5f5;
+        color:#f5f5f5
+      }
+      .outgoingLbl {
+        background-color:#dddddd;
+        color:#dddddd
+      }
+      .incomingLbl {
+        background-color:#d1edff;
+        color:#d1edff
+      }
+      .modificationsLbl {
+        background-color:#ffd1d1;
+        color:#ffd1d1;
+      }
+
+      div {line-height:1.1em}
+
+      span.incoming {background-color:#edf8ff}
+      span.outgoing {background-color:#f2f2f2}
+      span.modified {background-color:#ffeded}
+      span.incomingLevel2 {background-color:#d1edff}
+      span.outgoingLevel2 {background-color:#dddddd}
+      span.modifiedLevel2 {background-color:#ffd1d1}
+
+      label.lineNoLeft {
+        width:18px;
+        padding-right:5px;
+        float:left;
+        color:#a5a5a5;
+        text-align:right;
+      }
+      label.lineNoRight {
+        width:18px;
+        padding-left:0px;
+        padding-right:0px;
+        float:right;
+        color:#a5a5a5;
+        text-align:right;
+      }
+
+      a {text-decoration:none}
+
+      #outgoing.tableFilter:checked ~ table.details tr.detailsOutgoing,
+      #incoming.tableFilter:checked ~ table.details tr.detailsIncoming,
+      #modifications.tableFilter:checked ~ table.details tr.detailsModified,
+      #all.tableFilter:checked ~ table.details tr {
+        display:table-row
+      }
+    </style>
+  </head>
+
+  <body>
+    <label style="display:block; margin-bottom:10px"><b>Differences: 5 difference blocks, 12 differences in total</b></label>
+
+    <label style="margin-right:20px"><b><br/>Comparison details by difference blocks:</b></label>
+    <input type="radio" class="tableFilter" name="filter" id="all" checked/>
+    <label>5 of type 'modified'</label>
+
+    <table style="margin-top:.6em">
+      <tr class="file">
+        <td class="filePath"><a href="file:/home/runner/work/flowers/flowers/master/topics/flowers/gardenia.dita" target="_blank">File 1: /home/runner/work/flowers/flowers/master/topics/flowers/gardenia.dita</a></td>
+        <td class="detailsStatus" style="border-left:hidden"></td>
+        <td class="detailsStatus" style="border-left:hidden; border-right:hidden"></td>
+        <td class="filePath"><a href="file:/home/runner/work/flowers/flowers/master-patch/topics/flowers/gardenia.dita" target="_blank">File 2: /home/runner/work/flowers/flowers/master-patch/topics/flowers/gardenia.dita</a></td>
+      </tr>
+    </table>
+
+    <table class="details">
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">4</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&lt;title><span class="modifiedLevel2">Gardenia99</span>&lt;/title></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">4</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&lt;title><span class="modifiedLevel2">Gardenia</span>&lt;/title></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">6</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>&lt;i>From&nbsp;Wikipedia,&nbsp;the&nbsp;free&nbsp;<span class="modifiedLevel2">encyclhhhopedia</span>.&lt;/i>&lt;/p></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">6</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>&lt;i>From&nbsp;Wikipedia,&nbsp;the&nbsp;free&nbsp;<span class="modifiedLevel2">encyclopedia</span>.&lt;/i>&lt;/p></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">8</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;&lt;xref&nbsp;keyref="flowers.genus"&nbsp;format="dita">genus&lt;/xref>&nbsp;of&nbsp;about&nbsp;250<span class="modifiedLevel2">&nbsp;</span>species&nbsp;of<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">9</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>flowering&nbsp;plants&nbsp;in&nbsp;the&nbsp;coffee&nbsp;family,&nbsp;&lt;b>Rubiaceae&lt;/b>,&nbsp;native&nbsp;to&nbsp;the<span class="modifiedLevel2">&nbsp;</span>tropical&nbsp;and<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">10</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>subtropical&nbsp;regions&nbsp;of&nbsp;Africa,&nbsp;southern&nbsp;Asia,&nbsp;<span class="modifiedLevel2">Australa99sia</span>&nbsp;and&nbsp;Oceania<span class="modifiedLevel2">.&nbsp;</span>Several&nbsp;species<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">11</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>occur&nbsp;on&nbsp;Hawaii,&nbsp;where&nbsp;gardenias&nbsp;are&nbsp;known&nbsp;as&nbsp;&lt;i>na'u&lt;/i>&nbsp;or<span class="modifiedLevel2">&nbsp;</span>&lt;i>nanu&lt;/i>.&lt;/p></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">8</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;&lt;xref&nbsp;keyref="flowers.genus"&nbsp;format="dita">genus&lt;/xref>&nbsp;of&nbsp;about&nbsp;250<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">9</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>species&nbsp;of<span class="modifiedLevel2">&nbsp;</span>flowering&nbsp;plants&nbsp;in&nbsp;the&nbsp;coffee&nbsp;family,&nbsp;&lt;b>Rubiaceae&lt;/b>,&nbsp;native&nbsp;to&nbsp;the<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">10</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>tropical&nbsp;and<span class="modifiedLevel2">&nbsp;</span>subtropical&nbsp;regions&nbsp;of&nbsp;Africa,&nbsp;southern&nbsp;Asia,&nbsp;<span class="modifiedLevel2">Australasia</span>&nbsp;and&nbsp;Oceania<span class="modifiedLevel2">.<br>
+            <label class="lineNoRight">11</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Several&nbsp;species<span class="modifiedLevel2">&nbsp;</span>occur&nbsp;on&nbsp;Hawaii,&nbsp;where&nbsp;gardenias&nbsp;are&nbsp;known&nbsp;as&nbsp;&lt;i>na'u&lt;/i>&nbsp;or<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">12</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;i>nanu&lt;/i>.&lt;/p></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">15</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>They&nbsp;are&nbsp;evergreen&nbsp;shrubs&nbsp;and&nbsp;<span class="modifiedLevel2">smallDD</span>&nbsp;trees&nbsp;growing&nbsp;to&nbsp;1–15&nbsp;metres&nbsp;(3.3–49&nbsp;ft)&nbsp;tall.&nbsp;The</span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">16</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>They&nbsp;are&nbsp;evergreen&nbsp;shrubs&nbsp;and&nbsp;<span class="modifiedLevel2">small</span>&nbsp;trees&nbsp;growing&nbsp;to&nbsp;1–15&nbsp;metres&nbsp;(3.3–49&nbsp;ft)&nbsp;tall.&nbsp;The</span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">18</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flowers&nbsp;are&nbsp;solitary&nbsp;or&nbsp;in&nbsp;<span class="modifiedLevel2">smaDDDDll</span>&nbsp;clusters,&nbsp;white,&nbsp;or&nbsp;pale&nbsp;yellow,&nbsp;with&nbsp;a&nbsp;tubular-based</span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">19</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flowers&nbsp;are&nbsp;solitary&nbsp;or&nbsp;in&nbsp;<span class="modifiedLevel2">small</span>&nbsp;clusters,&nbsp;white,&nbsp;or&nbsp;pale&nbsp;yellow,&nbsp;with&nbsp;a&nbsp;tubular-based</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Comparison Report</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 1.5em;
+        z-index: 1;
+        font-size: 15px;
+        font-family: robotoregular, Arial, Helvetica, sans-serif;
+        line-height: 1.4em;
+        color: #5a5a5a;
+        background-color:#fff
+      }
+      table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%
+      }
+      td {
+        border: 1px solid #e5e5e5;
+        padding-left: 7px;
+        padding-right: 7px;
+        vertical-align: central
+      }
+
+      tr.file {
+        border-bottom:hidden;
+        background-color:#fafaef;
+        line-height:1.8em;
+        font-size:.9em
+      }
+      tr.file a {color:#555}
+
+      td.details {
+        padding-top:8px;
+        padding-bottom:8px;
+        color:#333
+      }
+
+      td.filePath {
+        word-break:break-all;
+        font-size:1.2em;
+      }
+      td.content {
+        word-break:break-all;
+        vertical-align:top
+      }
+      td.detailsStatus {
+        text-align:center;
+        padding:0px 0px 0px 0px;
+        width:25px;
+        overflow:hidden
+      }
+
+      .details tr {display:none}
+      .tableFilter {display:none}
+      .tableFilter + label ~ label {cursor:pointer}
+      .tableFilter:checked + label {color:black}
+
+      .filterLblText {margin-right:10px}
+      .filterLbl {
+        border:1px solid gray;
+        cursor:pointer
+      }
+      .allLbl {
+        background-color:#f5f5f5;
+        color:#f5f5f5
+      }
+      .outgoingLbl {
+        background-color:#dddddd;
+        color:#dddddd
+      }
+      .incomingLbl {
+        background-color:#d1edff;
+        color:#d1edff
+      }
+      .modificationsLbl {
+        background-color:#ffd1d1;
+        color:#ffd1d1;
+      }
+
+      div {line-height:1.1em}
+
+      span.incoming {background-color:#edf8ff}
+      span.outgoing {background-color:#f2f2f2}
+      span.modified {background-color:#ffeded}
+      span.incomingLevel2 {background-color:#d1edff}
+      span.outgoingLevel2 {background-color:#dddddd}
+      span.modifiedLevel2 {background-color:#ffd1d1}
+
+      label.lineNoLeft {
+        width:18px;
+        padding-right:5px;
+        float:left;
+        color:#a5a5a5;
+        text-align:right;
+      }
+      label.lineNoRight {
+        width:18px;
+        padding-left:0px;
+        padding-right:0px;
+        float:right;
+        color:#a5a5a5;
+        text-align:right;
+      }
+
+      a {text-decoration:none}
+
+      #outgoing.tableFilter:checked ~ table.details tr.detailsOutgoing,
+      #incoming.tableFilter:checked ~ table.details tr.detailsIncoming,
+      #modifications.tableFilter:checked ~ table.details tr.detailsModified,
+      #all.tableFilter:checked ~ table.details tr {
+        display:table-row
+      }
+    </style>
+  </head>
+
+  <body>
+    <label style="display:block; margin-bottom:10px"><b>Differences: 6 difference blocks, 53 differences in total</b></label>
+
+    <label style="margin-right:20px"><b><br/>Comparison details by difference blocks:</b></label>
+    <input type="radio" class="tableFilter" name="filter" id="all" checked/>
+    <label>6 of type 'modified'</label>
+
+    <table style="margin-top:.6em">
+      <tr class="file">
+        <td class="filePath"><a href="file:/home/runner/work/flowers/flowers/master/topics/flowers/iris.dita" target="_blank">File 1: /home/runner/work/flowers/flowers/master/topics/flowers/iris.dita</a></td>
+        <td class="detailsStatus" style="border-left:hidden"></td>
+        <td class="detailsStatus" style="border-left:hidden; border-right:hidden"></td>
+        <td class="filePath"><a href="file:/home/runner/work/flowers/flowers/master-patch/topics/flowers/iris.dita" target="_blank">File 2: /home/runner/work/flowers/flowers/master-patch/topics/flowers/iris.dita</a></td>
+      </tr>
+    </table>
+
+    <table class="details">
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">4</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&lt;title><span class="modifiedLevel2">IrisDD</span>&lt;/title></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">4</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&lt;title><span class="modifiedLevel2">Iris</span>&lt;/title></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">8</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;&lt;xref&nbsp;keyref="flowers.genus"&nbsp;format="dita">genus&lt;/xref>&nbsp;of<span class="modifiedLevel2">&nbsp;</span>between&nbsp;200-300&nbsp;species<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">9</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>of&nbsp;flowering&nbsp;plants&nbsp;with&nbsp;showy&nbsp;flowers.&nbsp;It&nbsp;takes&nbsp;its&nbsp;name&nbsp;from<span class="modifiedLevel2">&nbsp;</span>the&nbsp;Greek&nbsp;word&nbsp;for&nbsp;a<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">10</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;i>rainbow&lt;/i>,&nbsp;<span class="modifiedLevel2">ref11erring</span>&nbsp;to&nbsp;the&nbsp;wide&nbsp;variety&nbsp;of&nbsp;flower&nbsp;colors<span class="modifiedLevel2">&nbsp;</span>found&nbsp;among&nbsp;the<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">11</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>many&nbsp;species.&nbsp;As&nbsp;well&nbsp;as&nbsp;<span class="outgoingLevel2">hhh&nbsp;</span>being&nbsp;the&nbsp;scientific&nbsp;name,&nbsp;iris&nbsp;is&nbsp;also&nbsp;very<span class="modifiedLevel2">&nbsp;</span>widely&nbsp;used&nbsp;as<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">12</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>a&nbsp;common&nbsp;name;&nbsp;for&nbsp;one&nbsp;thing,&nbsp;it&nbsp;refers&nbsp;to&nbsp;all&nbsp;&lt;b>Iris&lt;/b>&nbsp;species,&nbsp;but<span class="modifiedLevel2">&nbsp;</span>some&nbsp;plants<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">13</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>called&nbsp;thus&nbsp;belong&nbsp;to&nbsp;closely&nbsp;related&nbsp;genera.&nbsp;In&nbsp;North&nbsp;America,&nbsp;a&nbsp;common<span class="modifiedLevel2">&nbsp;</span>name&nbsp;for&nbsp;irises<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">14</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>is&nbsp;&lt;b>flags&lt;/b>,&nbsp;while&nbsp;the&nbsp;subgenus&nbsp;&lt;b>Scorpiris&lt;/b>&nbsp;is&nbsp;widely&nbsp;known&nbsp;as<span class="modifiedLevel2">&nbsp;</span>&lt;b>junos&lt;/b><span class="modifiedLevel2">,<br>
+            <label class="lineNoLeft">15</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>particularly&nbsp;in&nbsp;horticulture.&lt;/p></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">8</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;&lt;xref&nbsp;keyref="flowers.genus"&nbsp;format="dita">genus&lt;/xref>&nbsp;of<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">9</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>between&nbsp;200-300&nbsp;species<span class="modifiedLevel2">&nbsp;</span>of&nbsp;flowering&nbsp;plants&nbsp;with&nbsp;showy&nbsp;flowers.&nbsp;It&nbsp;takes&nbsp;its&nbsp;name&nbsp;from<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">10</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>the&nbsp;Greek&nbsp;word&nbsp;for&nbsp;a<span class="modifiedLevel2">&nbsp;</span>&lt;i>rainbow&lt;/i>,&nbsp;<span class="modifiedLevel2">referring</span>&nbsp;to&nbsp;the&nbsp;wide&nbsp;variety&nbsp;of&nbsp;flower&nbsp;colors<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">11</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>found&nbsp;among&nbsp;the<span class="modifiedLevel2">&nbsp;</span>many&nbsp;species.&nbsp;As&nbsp;well&nbsp;as&nbsp;being&nbsp;the&nbsp;scientific&nbsp;name,&nbsp;iris&nbsp;is&nbsp;also&nbsp;very<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">12</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>widely&nbsp;used&nbsp;as<span class="modifiedLevel2">&nbsp;</span>a&nbsp;common&nbsp;name;&nbsp;for&nbsp;one&nbsp;thing,&nbsp;it&nbsp;refers&nbsp;to&nbsp;all&nbsp;&lt;b>Iris&lt;/b>&nbsp;species,&nbsp;but<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">13</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>some&nbsp;plants<span class="modifiedLevel2">&nbsp;</span>called&nbsp;thus&nbsp;belong&nbsp;to&nbsp;closely&nbsp;related&nbsp;genera.&nbsp;In&nbsp;North&nbsp;America,&nbsp;a&nbsp;common<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">14</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>name&nbsp;for&nbsp;irises<span class="modifiedLevel2">&nbsp;</span>is&nbsp;&lt;b>flags&lt;/b>,&nbsp;while&nbsp;the&nbsp;subgenus&nbsp;&lt;b>Scorpiris&lt;/b>&nbsp;is&nbsp;widely&nbsp;known&nbsp;as<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">15</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;b>junos&lt;/b><span class="modifiedLevel2">,&nbsp;</span>particularly&nbsp;in&nbsp;horticulture.&lt;/p></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">17</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>The&nbsp;&lt;xref&nbsp;keyref="flowers.genus"&nbsp;format="dita">genus&lt;/xref>&nbsp;is&nbsp;widely&nbsp;<span class="outgoingLevel2">distributed<br>
+            <label class="lineNoLeft">18</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>throughout&nbsp;the&nbsp;north&nbsp;temperate&nbsp;zone.&nbsp;Their&nbsp;habitats&nbsp;are&nbsp;considerably&nbsp;varied<span class="modifiedLevel2">,&nbsp;</span>ranging<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">19</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>from&nbsp;cold&nbsp;and&nbsp;mountain&nbsp;regions&nbsp;to&nbsp;the&nbsp;grassy&nbsp;slopes,&nbsp;meadowlands&nbsp;and&nbsp;riverbanks&nbsp;<span class="outgoingLevel2">of<br>
+            <label class="lineNoLeft">20</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Europe,&nbsp;the&nbsp;Middle&nbsp;East&nbsp;and&nbsp;northern&nbsp;Africa,&nbsp;Asia&nbsp;and&nbsp;across&nbsp;North&nbsp;America.&lt;/p></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">17</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>The&nbsp;&lt;xref&nbsp;keyref="flowers.genus"&nbsp;format="dita">genus&lt;/xref>&nbsp;is&nbsp;widely<span class="incomingLevel2"><br>
+            <label class="lineNoRight">18</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distributed</span>&nbsp;throughout&nbsp;the&nbsp;north&nbsp;temperate&nbsp;zone.&nbsp;Their&nbsp;habitats&nbsp;are&nbsp;considerably&nbsp;varied<span class="modifiedLevel2">,<br>
+            <label class="lineNoRight">19</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>ranging<span class="modifiedLevel2">&nbsp;</span>from&nbsp;cold&nbsp;and&nbsp;mountain&nbsp;regions&nbsp;to&nbsp;the&nbsp;grassy&nbsp;slopes,&nbsp;meadowlands&nbsp;and&nbsp;riverbanks<span class="incomingLevel2"><br>
+            <label class="lineNoRight">20</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of</span>&nbsp;Europe,&nbsp;the&nbsp;Middle&nbsp;East&nbsp;and&nbsp;northern&nbsp;Africa,&nbsp;Asia&nbsp;and&nbsp;across&nbsp;North&nbsp;America.&lt;/p></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">23</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format="dita">sepals&lt;/xref>,&nbsp;which&nbsp;are<span class="modifiedLevel2">&nbsp;</span>spreading&nbsp;or&nbsp;droop&nbsp;downwards,&nbsp;are&nbsp;referred&nbsp;to<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">24</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>as&nbsp;"falls".&nbsp;They&nbsp;expand&nbsp;from&nbsp;their&nbsp;narrow<span class="modifiedLevel2">&nbsp;</span>base,&nbsp;which&nbsp;in&nbsp;some&nbsp;of&nbsp;the&nbsp;rhizomatous&nbsp;irises<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">25</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>has&nbsp;a&nbsp;"beard"&nbsp;(a&nbsp;tuft&nbsp;of&nbsp;short&nbsp;upright<span class="modifiedLevel2">&nbsp;</span>extensions&nbsp;growing&nbsp;in&nbsp;its&nbsp;midline),&nbsp;into&nbsp;a<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">26</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>broader&nbsp;expanded&nbsp;portion&nbsp;("limb"),&nbsp;often<span class="modifiedLevel2">&nbsp;</span>adorned&nbsp;with&nbsp;veining,&nbsp;lines&nbsp;or&nbsp;dots.&nbsp;The&nbsp;three<span class="modifiedLevel2">,<br>
+            <label class="lineNoLeft">27</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>sometimes&nbsp;reduced,&nbsp;petals&nbsp;stand&nbsp;upright<span class="modifiedLevel2">,&nbsp;</span>partly&nbsp;behind&nbsp;the&nbsp;sepal&nbsp;bases.&nbsp;They&nbsp;are&nbsp;called<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">28</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span>standards".&nbsp;Some&nbsp;smaller&nbsp;iris&nbsp;species<span class="modifiedLevel2">&nbsp;</span>have&nbsp;all&nbsp;six&nbsp;lobes&nbsp;pointing&nbsp;straight&nbsp;outwards<span class="modifiedLevel2">,<br>
+            <label class="lineNoLeft">29</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>but&nbsp;generally,&nbsp;limb&nbsp;and&nbsp;standards&nbsp;differ<span class="modifiedLevel2">&nbsp;</span>markedly&nbsp;in&nbsp;appearance.&nbsp;They&nbsp;are&nbsp;united&nbsp;at<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">30</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>their&nbsp;base&nbsp;into&nbsp;a&nbsp;floral&nbsp;tube&nbsp;that&nbsp;lies&nbsp;above<span class="modifiedLevel2">&nbsp;</span>the&nbsp;ovary.&nbsp;The&nbsp;styles&nbsp;divide&nbsp;towards&nbsp;the<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">31</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>apex&nbsp;into&nbsp;petaloid&nbsp;branches;&nbsp;this&nbsp;is<span class="modifiedLevel2">&nbsp;</span>significant&nbsp;in&nbsp;&lt;xref&nbsp;keyref="flowers.pollination"</span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">23</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keyref="flowers.sepal"&nbsp;format="dita">sepals&lt;/xref>,&nbsp;which&nbsp;are<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">24</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>spreading&nbsp;or&nbsp;droop&nbsp;downwards,&nbsp;are&nbsp;referred&nbsp;to<span class="modifiedLevel2">&nbsp;</span>as&nbsp;"falls".&nbsp;They&nbsp;expand&nbsp;from&nbsp;their&nbsp;narrow<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">25</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>base,&nbsp;which&nbsp;in&nbsp;some&nbsp;of&nbsp;the&nbsp;rhizomatous&nbsp;irises<span class="modifiedLevel2">&nbsp;</span>has&nbsp;a&nbsp;"beard"&nbsp;(a&nbsp;tuft&nbsp;of&nbsp;short&nbsp;upright<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">26</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>extensions&nbsp;growing&nbsp;in&nbsp;its&nbsp;midline),&nbsp;into&nbsp;a<span class="modifiedLevel2">&nbsp;</span>broader&nbsp;expanded&nbsp;portion&nbsp;("limb"),&nbsp;often<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">27</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>adorned&nbsp;with&nbsp;veining,&nbsp;lines&nbsp;or&nbsp;dots.&nbsp;The&nbsp;three<span class="modifiedLevel2">,&nbsp;</span>sometimes&nbsp;reduced,&nbsp;petals&nbsp;stand&nbsp;upright<span class="modifiedLevel2">,<br>
+            <label class="lineNoRight">28</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>partly&nbsp;behind&nbsp;the&nbsp;sepal&nbsp;bases.&nbsp;They&nbsp;are&nbsp;called<span class="modifiedLevel2">&nbsp;"</span>standards".&nbsp;Some&nbsp;smaller&nbsp;iris&nbsp;species<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">29</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>have&nbsp;all&nbsp;six&nbsp;lobes&nbsp;pointing&nbsp;straight&nbsp;outwards<span class="modifiedLevel2">,&nbsp;</span>but&nbsp;generally,&nbsp;limb&nbsp;and&nbsp;standards&nbsp;differ<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">30</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>markedly&nbsp;in&nbsp;appearance.&nbsp;They&nbsp;are&nbsp;united&nbsp;at<span class="modifiedLevel2">&nbsp;</span>their&nbsp;base&nbsp;into&nbsp;a&nbsp;floral&nbsp;tube&nbsp;that&nbsp;lies&nbsp;above<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">31</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>the&nbsp;ovary.&nbsp;The&nbsp;styles&nbsp;divide&nbsp;towards&nbsp;the<span class="modifiedLevel2">&nbsp;</span>apex&nbsp;into&nbsp;petaloid&nbsp;branches;&nbsp;this&nbsp;is<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">32</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>significant&nbsp;in&nbsp;&lt;xref&nbsp;keyref="flowers.pollination"&nbsp;format="dita"</span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">46</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;<span class="outgoingLevel2">&lt;topic&nbsp;id="id_vtn_xpq_jnb"&nbsp;conref="lilac.dita"><br>
+            <label class="lineNoLeft">47</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title/><br>
+            <label class="lineNoLeft">48</label>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/topic><br>
+            <label class="lineNoLeft">49</label>&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;topic&nbsp;id="use"><br>
+            <label class="lineNoLeft">50</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="outgoingLevel2">&lt;title>Use&lt;/title><br>
+            <label class="lineNoLeft">51</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;body></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">47</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&lt;topic&nbsp;id="use"><span class="incomingLevel2"><br>
+            <label class="lineNoRight">48</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title>Use&lt;/title></span><br>
+            <label class="lineNoRight">49</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;body></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">57</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>Some&nbsp;&lt;xref&nbsp;keyref="flowers.rhizome"&nbsp;format="dita">rhizomes&lt;/xref><span class="modifiedLevel2">&nbsp;</span>are&nbsp;traded&nbsp;as&nbsp;orris<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">58</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>root&nbsp;and&nbsp;are&nbsp;used&nbsp;in&nbsp;perfume&nbsp;and&nbsp;medicine,&nbsp;though&nbsp;more&nbsp;common&nbsp;in<span class="modifiedLevel2">&nbsp;</span>ancient&nbsp;times&nbsp;than<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">59</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>today.&nbsp;Today&nbsp;&lt;b>Iris&lt;/b>&nbsp;essential&nbsp;oil&nbsp;(absolute)&nbsp;from&nbsp;flowers<span class="modifiedLevel2">&nbsp;</span>are&nbsp;sometimes&nbsp;used&nbsp;in<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">60</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>aromatherapy&nbsp;as&nbsp;sedative&nbsp;medicines.&nbsp;The&nbsp;dried&nbsp;rhizomes&nbsp;are<span class="modifiedLevel2">&nbsp;</span>also&nbsp;given&nbsp;whole&nbsp;to<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">61</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>babies&nbsp;to&nbsp;help&nbsp;in&nbsp;teething.&nbsp;Some&nbsp;gin&nbsp;brands&nbsp;use&nbsp;orris&nbsp;root&nbsp;and<span class="modifiedLevel2">&nbsp;</span>sometimes&nbsp;iris<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">62</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>flowers&nbsp;for&nbsp;flavor&nbsp;and&nbsp;color.&nbsp;&lt;/p></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">55</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>Some&nbsp;&lt;xref&nbsp;keyref="flowers.rhizome"&nbsp;format="dita">rhizomes&lt;/xref><span class="modifiedLevel2"><br>
+            <label class="lineNoRight">56</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>are&nbsp;traded&nbsp;as&nbsp;orris<span class="modifiedLevel2">&nbsp;</span>root&nbsp;and&nbsp;are&nbsp;used&nbsp;in&nbsp;perfume&nbsp;and&nbsp;medicine,&nbsp;though&nbsp;more&nbsp;common&nbsp;in<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">57</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>ancient&nbsp;times&nbsp;than<span class="modifiedLevel2">&nbsp;</span>today.&nbsp;Today&nbsp;&lt;b>Iris&lt;/b>&nbsp;essential&nbsp;oil&nbsp;(absolute)&nbsp;from&nbsp;flowers<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">58</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>are&nbsp;sometimes&nbsp;used&nbsp;in<span class="modifiedLevel2">&nbsp;</span>aromatherapy&nbsp;as&nbsp;sedative&nbsp;medicines.&nbsp;The&nbsp;dried&nbsp;rhizomes&nbsp;are<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">59</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>also&nbsp;given&nbsp;whole&nbsp;to<span class="modifiedLevel2">&nbsp;</span>babies&nbsp;to&nbsp;help&nbsp;in&nbsp;teething.&nbsp;Some&nbsp;gin&nbsp;brands&nbsp;use&nbsp;orris&nbsp;root&nbsp;and<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">60</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>sometimes&nbsp;iris<span class="modifiedLevel2">&nbsp;</span>flowers&nbsp;for&nbsp;flavor&nbsp;and&nbsp;color.&nbsp;&lt;/p></span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Comparison Report</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 1.5em;
+        z-index: 1;
+        font-size: 15px;
+        font-family: robotoregular, Arial, Helvetica, sans-serif;
+        line-height: 1.4em;
+        color: #5a5a5a;
+        background-color:#fff
+      }
+      table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%
+      }
+      td {
+        border: 1px solid #e5e5e5;
+        padding-left: 7px;
+        padding-right: 7px;
+        vertical-align: central
+      }
+
+      tr.file {
+        border-bottom:hidden;
+        background-color:#fafaef;
+        line-height:1.8em;
+        font-size:.9em
+      }
+      tr.file a {color:#555}
+
+      td.details {
+        padding-top:8px;
+        padding-bottom:8px;
+        color:#333
+      }
+
+      td.filePath {
+        word-break:break-all;
+        font-size:1.2em;
+      }
+      td.content {
+        word-break:break-all;
+        vertical-align:top
+      }
+      td.detailsStatus {
+        text-align:center;
+        padding:0px 0px 0px 0px;
+        width:25px;
+        overflow:hidden
+      }
+
+      .details tr {display:none}
+      .tableFilter {display:none}
+      .tableFilter + label ~ label {cursor:pointer}
+      .tableFilter:checked + label {color:black}
+
+      .filterLblText {margin-right:10px}
+      .filterLbl {
+        border:1px solid gray;
+        cursor:pointer
+      }
+      .allLbl {
+        background-color:#f5f5f5;
+        color:#f5f5f5
+      }
+      .outgoingLbl {
+        background-color:#dddddd;
+        color:#dddddd
+      }
+      .incomingLbl {
+        background-color:#d1edff;
+        color:#d1edff
+      }
+      .modificationsLbl {
+        background-color:#ffd1d1;
+        color:#ffd1d1;
+      }
+
+      div {line-height:1.1em}
+
+      span.incoming {background-color:#edf8ff}
+      span.outgoing {background-color:#f2f2f2}
+      span.modified {background-color:#ffeded}
+      span.incomingLevel2 {background-color:#d1edff}
+      span.outgoingLevel2 {background-color:#dddddd}
+      span.modifiedLevel2 {background-color:#ffd1d1}
+
+      label.lineNoLeft {
+        width:18px;
+        padding-right:5px;
+        float:left;
+        color:#a5a5a5;
+        text-align:right;
+      }
+      label.lineNoRight {
+        width:18px;
+        padding-left:0px;
+        padding-right:0px;
+        float:right;
+        color:#a5a5a5;
+        text-align:right;
+      }
+
+      a {text-decoration:none}
+
+      #outgoing.tableFilter:checked ~ table.details tr.detailsOutgoing,
+      #incoming.tableFilter:checked ~ table.details tr.detailsIncoming,
+      #modifications.tableFilter:checked ~ table.details tr.detailsModified,
+      #all.tableFilter:checked ~ table.details tr {
+        display:table-row
+      }
+    </style>
+  </head>
+
+  <body>
+    <label style="display:block; margin-bottom:10px"><b>Differences: 1 difference block, 13 differences in total</b></label>
+
+    <label style="margin-right:20px"><b><br/>Comparison details by difference blocks:</b></label>
+    <input type="radio" class="tableFilter" name="filter" id="all" checked/>
+    <label>1 of type 'modified'</label>
+
+    <table style="margin-top:.6em">
+      <tr class="file">
+        <td class="filePath"><a href="file:/home/runner/work/flowers/flowers/master/topics/index.dita" target="_blank">File 1: /home/runner/work/flowers/flowers/master/topics/index.dita</a></td>
+        <td class="detailsStatus" style="border-left:hidden"></td>
+        <td class="detailsStatus" style="border-left:hidden; border-right:hidden"></td>
+        <td class="filePath"><a href="file:/home/runner/work/flowers/flowers/master-patch/topics/index.dita" target="_blank">File 2: /home/runner/work/flowers/flowers/master-patch/topics/index.dita</a></td>
+      </tr>
+    </table>
+
+    <table class="details">
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">3</label><span class="modified">&lt;topic&nbsp;id="index"><span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">4</label>&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;title>Flowers&nbsp;by&nbsp;Season&lt;/title><span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">5</label>&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;body><span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">6</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;p>The&nbsp;various&nbsp;climatic&nbsp;changes&nbsp;that&nbsp;<span class="modifiedLevel2">occ*ur</span>&nbsp;in&nbsp;cyclic&nbsp;pattern&nbsp;are&nbsp;termed&nbsp;as&nbsp;'Seasons'.&nbsp;There<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">7</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>are&nbsp;four&nbsp;general&nbsp;seasons&nbsp;occurring&nbsp;on&nbsp;Earth<span class="modifiedLevel2">-&nbsp;</span>Spring,&nbsp;Summer,&nbsp;Autumn&nbsp;and&nbsp;Winter.&lt;/p><span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">8</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;p>Flowers&nbsp;and&nbsp;<span class="modifiedLevel2">season</span>&nbsp;are&nbsp;intimately&nbsp;bound&nbsp;to&nbsp;each&nbsp;other.&nbsp;When&nbsp;Most&nbsp;of&nbsp;the&nbsp;flowers&nbsp;are<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">9</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>season-specific.&nbsp;However,&nbsp;some&nbsp;flowers&nbsp;are&nbsp;found&nbsp;<span class="modifiedLevel2">throfdsfsdfdsughout</span>&nbsp;the&nbsp;year,&nbsp;not<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">10</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>particularly<span class="modifiedLevel2">&nbsp;</span>affected&nbsp;by&nbsp;changing&nbsp;seasons.&lt;/p><span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">11</label>&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/body></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">3</label><span class="modified">&lt;topic&nbsp;id="index"><span class="modifiedLevel2"><br>
+            <label class="lineNoRight">4</label>&nbsp;&nbsp;</span>&lt;title>Flowers&nbsp;by&nbsp;Season&lt;/title><span class="modifiedLevel2"><br>
+            <label class="lineNoRight">5</label>&nbsp;&nbsp;</span>&lt;body><span class="modifiedLevel2"><br>
+            <label class="lineNoRight">6</label>&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;p>The&nbsp;various&nbsp;climatic&nbsp;changes&nbsp;that&nbsp;<span class="modifiedLevel2">occur</span>&nbsp;in&nbsp;cyclic&nbsp;pattern&nbsp;are&nbsp;termed&nbsp;as&nbsp;'Seasons'.&nbsp;There<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">7</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>are&nbsp;four&nbsp;general&nbsp;seasons&nbsp;occurring&nbsp;on&nbsp;Earth<span class="modifiedLevel2">&nbsp;-&nbsp;</span>Spring,&nbsp;Summer,&nbsp;Autumn&nbsp;and&nbsp;Winter.&lt;/p><span class="modifiedLevel2"><br>
+            <label class="lineNoRight">8</label>&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;p>Flowers&nbsp;and&nbsp;<span class="modifiedLevel2">seasons</span>&nbsp;are&nbsp;intimately&nbsp;bound&nbsp;to&nbsp;each&nbsp;other.&nbsp;When&nbsp;Most&nbsp;of&nbsp;the&nbsp;flowers&nbsp;are<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">9</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>season-specific.&nbsp;However,&nbsp;some&nbsp;flowers&nbsp;are&nbsp;found&nbsp;<span class="modifiedLevel2">throughout</span>&nbsp;the&nbsp;year,&nbsp;not<span class="modifiedLevel2">&nbsp;</span>particularly<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">10</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>affected&nbsp;by&nbsp;changing&nbsp;seasons.&lt;/p><span class="modifiedLevel2"><br>
+            <label class="lineNoRight">11</label>&nbsp;&nbsp;</span>&lt;/body></span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

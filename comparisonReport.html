@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Directory Comparison Report</title>
+
+    <style>
+      body {
+        padding:0;
+        margin:1.5em;
+        z-index:1;
+        font-size:15px;
+        font-family:robotoregular, Arial, Helvetica, sans-serif;
+        line-height:1.4em;
+        color:#5a5a5a;
+        background-color:#fff
+      }
+      table {
+        border-collapse:collapse;
+        table-layout:fixed;
+        width:100%
+      }
+      td {
+        border:1px solid #e5e5e5;
+        padding-left:5px;
+        padding-right:5px;
+        vertical-align:central
+      }
+
+      tr.quantOutgoing {color:#333}
+      tr.quantIncoming {color:#3591da}
+      tr.quantModifications {color:#870000}
+
+      td.filePath {word-break:break-all}
+      td.size {width:70px}
+      td.modifDate {width:140px}
+      td.status {
+        text-align:center;
+        padding-left:0px;
+        padding-right:0px;
+        width:15px;
+        overflow:hidden
+      }
+      td.diffCategory {
+        background-color:#fafaef;
+        column-span:all
+      }
+      td.diffCategNumber {
+        text-align:right;
+        padding-right:2px
+      }
+      td.detailsStatus {
+        text-align:center;
+        padding-left:0px;
+        padding-right:0px;
+        width:25px;
+        overflow:hidden
+      }
+      td.sizeOutgoing {
+        text-align:right;
+        color:#333
+      }
+      td.modifiedOutgoing {color:#333}
+      td.sizeIncoming {
+        text-align:right;
+        color:#3591da
+      }
+      td.modifiedIncoming {color:#3591da}
+      td.sizeModifications {
+        text-align:right;
+        color:#870000
+      }
+      td.modifiedModifications {color:#870000}
+
+      span.outgoing {color:#333}
+      span.incoming {color:#3591da}
+      span.modifications {color:#870000}
+
+      a {text-decoration:none}
+      a.outgoing {color:#333}
+      a.incoming {color:#3591da}
+      a.modifications {color:#870000}
+
+      .dirPath {
+        background-color:#fafaef;
+        line-height:1.8em;
+        font-size:.9em
+      }
+      .dirPath a {color:#555}
+
+      .detailsStatus {
+        font-size:1.2em;
+        cursor:default
+      }
+
+      .detailsStatusWithLink {
+        background-color:#f5f5e2;
+        cursor:pointer
+      }
+
+      .details tr, .tableFilter {display:none}
+      .tableFilter + label ~ label {cursor:pointer}
+      .tableFilter:checked + label {color:black}
+
+      .filterLblText {margin-right:10px}
+      .filterLbl {
+        border:1px solid gray;
+        cursor:pointer
+      }
+      .allLbl {
+        background-color:#f5f5f5;
+        color:#f5f5f5
+      }
+      .outgoingLbl {
+        background-color:#c8c8c8;
+        color:#c8c8c8
+      }
+      .incomingLbl {
+        background-color:#3591da;
+        color:#3591da
+      }
+      .modificationsLbl {
+        background-color:rgba(135,0,0,.65);
+        color:rgba(135,0,0,0)
+      }
+
+      #outgoing.tableFilter:checked ~ table.details tr.detailsOutgoing,
+      #incoming.tableFilter:checked ~ table.details tr.detailsIncoming,
+      #modifications.tableFilter:checked ~ table.details tr.detailsModifications,
+      #all.tableFilter:checked ~ table.details tr {
+        display:table-row
+      }
+    </style>
+  </head>
+
+  <body>
+    <label style="display:block; margin-bottom:10px"><b>Differences:&nbsp;39</b></label>
+
+    <label style="margin-right:20px"><b><br/>Comparison details:</b></label>
+    <input type="radio" class="tableFilter" name="filter" id="all" checked/>
+    <label class="allLbl filterLbl" for="all" title="all differences">&nbsp;&#10003;&nbsp;</label>
+    <label class="filterLblText" for="all">all differences (39)</label>
+    <input type="radio" class="tableFilter" name="filter" id="outgoing"/>
+    <label class="outgoingLbl filterLbl" for="outgoing" title="only found in 1st folder">&nbsp;&#10003;&nbsp;</label>
+    <label class="filterLblText" for="outgoing">only found in 1st folder (25)</label>
+    <input type="radio" class="tableFilter" name="filter" id="incoming"/>
+    <label class="incomingLbl filterLbl" for="incoming" title="only found in 2nd folder">&nbsp;&#10003;&nbsp;</label>
+    <label class="filterLblText" for="incoming">only found in 2nd folder (1)</label>
+    <input type="radio" class="tableFilter" name="filter" id="modifications"/>
+    <label class="modificationsLbl filterLbl" for="modifications" title="modified">&nbsp;&#10003;&nbsp;</label>
+    <label class="filterLblText" for="modifications">modified (13)</label>
+
+    <table style="margin-top:.6em">
+      <tr class="dirPath" style="border-bottom:hidden">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/" target="_blank">Folder 1: /home/runner/work/flowers/flowers/master/</a></td>
+        <td class="detailsStatus" style="border-left:hidden"></td>
+        <td class="detailsStatus" style="border-left:hidden; border-right:hidden"></td>
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master-patch/" target="_blank">Folder 2: /home/runner/work/flowers/flowers/master-patch/</a></td>
+      </tr>
+    </table>
+
+    <table class="details">
+      <tr class="dirPath detailsOutgoing detailsIncoming detailsModifications" style="font-size:1.1em; color:#333">
+        <td class="filePath">File name</td>
+        <td class="size">Size</td>
+        <td class="modifDate">Modified</td>
+        <td class="detailsStatus"></td>
+        <td class="detailsStatus"></td>
+        <td class="filePath">File name</td>
+        <td class="size">Size</td>
+        <td class="modifDate">Modified</td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/.github/" target="_blank">.github/</a></td>
+        <td class="sizeOutgoing"></td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/.github/workflows/" target="_blank">.github/workflows/</a></td>
+        <td class="sizeOutgoing"></td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/.github/workflows/main.yml" target="_blank">.github/workflows/main.yml</a></td>
+        <td class="sizeOutgoing">660</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/concepts/autumnFlowers.dita" target="_blank">concepts/autumnFlowers.dita</a></td>
+        <td class="sizeModifications">1227</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-3.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-3.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/concepts/autumnFlowers.dita" target="_blank">concepts/autumnFlowers.dita</a></td>
+        <td class="sizeModifications">1191</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/concepts/summerFlowers.dita" target="_blank">concepts/summerFlowers.dita</a></td>
+        <td class="sizeModifications">1024</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-4.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-4.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/concepts/summerFlowers.dita" target="_blank">concepts/summerFlowers.dita</a></td>
+        <td class="sizeModifications">1022</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/tasks/gardenPreparation.dita" target="_blank">tasks/gardenPreparation.dita</a></td>
+        <td class="sizeModifications">2298</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-5.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-5.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/tasks/gardenPreparation.dita" target="_blank">tasks/gardenPreparation.dita</a></td>
+        <td class="sizeModifications">2296</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/tasks/pruning.dita" target="_blank">tasks/pruning.dita</a></td>
+        <td class="sizeModifications">2558</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-6.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-6.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/tasks/pruning.dita" target="_blank">tasks/pruning.dita</a></td>
+        <td class="sizeModifications">2556</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/topics/flowers/gardenia.dita" target="_blank">topics/flowers/gardenia.dita</a></td>
+        <td class="sizeModifications">2557</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-7.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-7.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/topics/flowers/gardenia.dita" target="_blank">topics/flowers/gardenia.dita</a></td>
+        <td class="sizeModifications">2556</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/topics/flowers/iris.dita" target="_blank">topics/flowers/iris.dita</a></td>
+        <td class="sizeModifications">5264</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-8.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-8.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/topics/flowers/iris.dita" target="_blank">topics/flowers/iris.dita</a></td>
+        <td class="sizeModifications">5187</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/topics/flowers/lilac.dita" target="_blank">topics/flowers/lilac.dita</a></td>
+        <td class="sizeModifications">3551</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-9.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-9.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/topics/flowers/lilac.dita" target="_blank">topics/flowers/lilac.dita</a></td>
+        <td class="sizeModifications">3333</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/topics/bundle.descriptor" target="_blank">topics/bundle.descriptor</a></td>
+        <td class="sizeOutgoing">6</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsIncoming">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="detailsStatus" title="only found in 2nd folder"><span class="incoming">&nbsp;&#8722;&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 2nd folder"><span class="incoming">&nbsp;+&nbsp;</span></td>
+        <td class="filePath"><a class="incoming" href="file:/home/runner/work/flowers/flowers/master-patch/topics/care.dita" target="_blank">topics/care.dita</a></td>
+        <td class="sizeIncoming">3442</td>
+        <td class="modifiedIncoming">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/topics/copyright.dita" target="_blank">topics/copyright.dita</a></td>
+        <td class="sizeModifications">440</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-12.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-12.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/topics/copyright.dita" target="_blank">topics/copyright.dita</a></td>
+        <td class="sizeModifications">412</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/topics/gard%20(1).dita" target="_blank">topics/gard (1).dita</a></td>
+        <td class="sizeOutgoing">691</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/topics/index.dita" target="_blank">topics/index.dita</a></td>
+        <td class="sizeModifications">684</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-14.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-14.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/topics/index.dita" target="_blank">topics/index.dita</a></td>
+        <td class="sizeModifications">644</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/topics/introduction.dita" target="_blank">topics/introduction.dita</a></td>
+        <td class="sizeModifications">624</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-15.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-15.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/topics/introduction.dita" target="_blank">topics/introduction.dita</a></td>
+        <td class="sizeModifications">622</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/Concept.dita" target="_blank">Concept.dita</a></td>
+        <td class="sizeOutgoing">305</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/DITA-OT%20Plugin.xml" target="_blank">DITA-OT Plugin.xml</a></td>
+        <td class="sizeOutgoing">158</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/Equation%202.0%20Schema%20Based.mml" target="_blank">Equation 2.0 Schema Based.mml</a></td>
+        <td class="sizeOutgoing">512</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/Learning%20Bookmap.ditamap" target="_blank">Learning Bookmap.ditamap</a></td>
+        <td class="sizeOutgoing">230</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/Learning%20Map%20(XSD).ditamap" target="_blank">Learning Map (XSD).ditamap</a></td>
+        <td class="sizeOutgoing">200</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/Markdown%20File.md" target="_blank">Markdown File.md</a></td>
+        <td class="sizeOutgoing">14</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/Markdown%20File.txt" target="_blank">Markdown File.txt</a></td>
+        <td class="sizeOutgoing">14</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/README.md" target="_blank">README.md</a></td>
+        <td class="sizeModifications">27</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-23.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-23.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/README.md" target="_blank">README.md</a></td>
+        <td class="sizeModifications">216</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/SUMMARY.md" target="_blank">SUMMARY.md</a></td>
+        <td class="sizeOutgoing">50</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/Topic.dita" target="_blank">Topic.dita</a></td>
+        <td class="sizeOutgoing">209</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/XHTML%205.xhtml" target="_blank">XHTML 5.xhtml</a></td>
+        <td class="sizeOutgoing">176</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/batcaring.dita" target="_blank">batcaring.dita</a></td>
+        <td class="sizeOutgoing">244</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/batfeeding.dita" target="_blank">batfeeding.dita</a></td>
+        <td class="sizeOutgoing">380</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/batguano.dita" target="_blank">batguano.dita</a></td>
+        <td class="sizeOutgoing">238</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/bathistory.dita" target="_blank">bathistory.dita</a></td>
+        <td class="sizeOutgoing">232</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/batsonar.dita" target="_blank">batsonar.dita</a></td>
+        <td class="sizeOutgoing">248</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/broken.xml" target="_blank">broken.xml</a></td>
+        <td class="sizeOutgoing">14</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/file.dita" target="_blank">file.dita</a></td>
+        <td class="sizeModifications">319</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-33.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-33.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/file.dita" target="_blank">file.dita</a></td>
+        <td class="sizeModifications">221</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsModifications">
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master/flowers.ditamap" target="_blank">flowers.ditamap</a></td>
+        <td class="sizeModifications">2580</td>
+        <td class="modifiedModifications">2023-02-08  08:32:29</td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-34.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="detailsStatusWithLink" title="modified&nbsp;&nbsp; CLICK FOR DETAILS!"><a href="comparisonReport-OXY-FC-REPORTS/fc-34.html" target="_blank"><span class="modifications">&nbsp;&#8727;&nbsp;</span></a></td>
+        <td class="filePath"><a class="modifications" href="file:/home/runner/work/flowers/flowers/master-patch/flowers.ditamap" target="_blank">flowers.ditamap</a></td>
+        <td class="sizeModifications">2519</td>
+        <td class="modifiedModifications">2023-02-08  08:32:30</td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/index%20-%20Copy%2520.dita" target="_blank">index - Copy%20.dita</a></td>
+        <td class="sizeOutgoing">759</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/jTEI%20Article.xml" target="_blank">jTEI Article.xml</a></td>
+        <td class="sizeOutgoing">3299</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/largeTable.xml" target="_blank">largeTable.xml</a></td>
+        <td class="sizeOutgoing">1378713</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="filePath"><a class="outgoing" href="file:/home/runner/work/flowers/flowers/master/reltable1.ditamap" target="_blank">reltable1.ditamap</a></td>
+        <td class="sizeOutgoing">976</td>
+        <td class="modifiedOutgoing">2023-02-08  08:32:29</td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;+&nbsp;</span></td>
+        <td class="detailsStatus" title="only found in 1st folder"><span class="outgoing">&nbsp;&#8722;&nbsp;</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>

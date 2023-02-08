@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Comparison Report</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 1.5em;
+        z-index: 1;
+        font-size: 15px;
+        font-family: robotoregular, Arial, Helvetica, sans-serif;
+        line-height: 1.4em;
+        color: #5a5a5a;
+        background-color:#fff
+      }
+      table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%
+      }
+      td {
+        border: 1px solid #e5e5e5;
+        padding-left: 7px;
+        padding-right: 7px;
+        vertical-align: central
+      }
+
+      tr.file {
+        border-bottom:hidden;
+        background-color:#fafaef;
+        line-height:1.8em;
+        font-size:.9em
+      }
+      tr.file a {color:#555}
+
+      td.details {
+        padding-top:8px;
+        padding-bottom:8px;
+        color:#333
+      }
+
+      td.filePath {
+        word-break:break-all;
+        font-size:1.2em;
+      }
+      td.content {
+        word-break:break-all;
+        vertical-align:top
+      }
+      td.detailsStatus {
+        text-align:center;
+        padding:0px 0px 0px 0px;
+        width:25px;
+        overflow:hidden
+      }
+
+      .details tr {display:none}
+      .tableFilter {display:none}
+      .tableFilter + label ~ label {cursor:pointer}
+      .tableFilter:checked + label {color:black}
+
+      .filterLblText {margin-right:10px}
+      .filterLbl {
+        border:1px solid gray;
+        cursor:pointer
+      }
+      .allLbl {
+        background-color:#f5f5f5;
+        color:#f5f5f5
+      }
+      .outgoingLbl {
+        background-color:#dddddd;
+        color:#dddddd
+      }
+      .incomingLbl {
+        background-color:#d1edff;
+        color:#d1edff
+      }
+      .modificationsLbl {
+        background-color:#ffd1d1;
+        color:#ffd1d1;
+      }
+
+      div {line-height:1.1em}
+
+      span.incoming {background-color:#edf8ff}
+      span.outgoing {background-color:#f2f2f2}
+      span.modified {background-color:#ffeded}
+      span.incomingLevel2 {background-color:#d1edff}
+      span.outgoingLevel2 {background-color:#dddddd}
+      span.modifiedLevel2 {background-color:#ffd1d1}
+
+      label.lineNoLeft {
+        width:18px;
+        padding-right:5px;
+        float:left;
+        color:#a5a5a5;
+        text-align:right;
+      }
+      label.lineNoRight {
+        width:18px;
+        padding-left:0px;
+        padding-right:0px;
+        float:right;
+        color:#a5a5a5;
+        text-align:right;
+      }
+
+      a {text-decoration:none}
+
+      #outgoing.tableFilter:checked ~ table.details tr.detailsOutgoing,
+      #incoming.tableFilter:checked ~ table.details tr.detailsIncoming,
+      #modifications.tableFilter:checked ~ table.details tr.detailsModified,
+      #all.tableFilter:checked ~ table.details tr {
+        display:table-row
+      }
+    </style>
+  </head>
+
+  <body>
+    <label style="display:block; margin-bottom:10px"><b>Differences: 4 difference blocks, 11 differences in total</b></label>
+
+    <label style="margin-right:20px"><b><br/>Comparison details by difference blocks:</b></label>
+    <input type="radio" class="tableFilter" name="filter" id="all" checked/>
+    <label class="allLbl filterLbl" for="all" title="all difference blocks">&nbsp;&#10003;&nbsp;</label>
+    <label class="filterLblText" for="all">all (4)</label>
+    <input type="radio" class="tableFilter" name="filter" id="outgoing"/>
+    <label class="outgoingLbl filterLbl" for="outgoing" title="added to 1st file / deleted from 2nd one">&nbsp;&#10003;&nbsp;</label>
+    <label class="filterLblText" for="outgoing">deleted (1)</label>
+    <input type="radio" class="tableFilter" name="filter" id="modifications"/>
+    <label class="modificationsLbl filterLbl" for="modifications" title="modified">&nbsp;&#10003;&nbsp;</label>
+    <label class="filterLblText" for="modifications">modified (3)</label>
+
+    <table style="margin-top:.6em">
+      <tr class="file">
+        <td class="filePath"><a href="file:/home/runner/work/flowers/flowers/master/topics/flowers/lilac.dita" target="_blank">File 1: /home/runner/work/flowers/flowers/master/topics/flowers/lilac.dita</a></td>
+        <td class="detailsStatus" style="border-left:hidden"></td>
+        <td class="detailsStatus" style="border-left:hidden; border-right:hidden"></td>
+        <td class="filePath"><a href="file:/home/runner/work/flowers/flowers/master-patch/topics/flowers/lilac.dita" target="_blank">File 2: /home/runner/work/flowers/flowers/master-patch/topics/flowers/lilac.dita</a></td>
+      </tr>
+    </table>
+
+    <table class="details">
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">7</label><span class="modified">&nbsp;&nbsp;<span class="modifiedLevel2">&lt;?oxy_delete&nbsp;author="dorinajitianu"&nbsp;timestamp="20201019T122257+0000"&nbsp;content="&lt;p&gt;&lt;b&gt;Lilac&lt;/b&gt;&nbsp;(&lt;b&gt;Syringa&lt;/b&gt;)&lt;indexterm&gt;flowers&lt;indexterm&gt;summer&lt;indexterm&gt;lilac&lt;/indexterm&gt;&lt;/indexterm&gt;&lt;/indexterm&gt;&nbsp;is&nbsp;a&nbsp;&lt;xref&nbsp;keyref=&quot;flowers.genus&quot;&nbsp;format=&quot;dita&quot;&gt;genus&lt;/xref&gt;&nbsp;of&nbsp;about&nbsp;20–25&nbsp;species&nbsp;of&nbsp;flowering&nbsp;plants&nbsp;in&nbsp;the&nbsp;olive&nbsp;family&nbsp;(&lt;b&gt;Oleaceae&lt;/b&gt;),&nbsp;native&nbsp;to&nbsp;Europe&nbsp;and&nbsp;Asia.&lt;/p&gt;"?></span></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">7</label><span class="modified">&nbsp;&nbsp;<span class="modifiedLevel2">&lt;p>&lt;b>Lilac&lt;/b><br>
+            <label class="lineNoRight">8</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt;b>Syringa&lt;/b>)&lt;indexterm>flowers&lt;indexterm>summer&lt;indexterm>lilac&lt;/indexterm>&lt;/indexterm>&lt;/indexterm><br>
+            <label class="lineNoRight">9</label>&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;&lt;xref&nbsp;keyref="flowers.genus"&nbsp;format="dita">genus&lt;/xref>&nbsp;of&nbsp;about&nbsp;20–25<br>
+            <label class="lineNoRight">10</label>&nbsp;&nbsp;&nbsp;species&nbsp;of&nbsp;flowering&nbsp;plants&nbsp;in&nbsp;the&nbsp;olive&nbsp;family&nbsp;(&lt;b>Oleaceae&lt;/b>),&nbsp;native&nbsp;to&nbsp;Europe&nbsp;and&nbsp;Asia.&lt;/p></span></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">16</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;format="dita">panicle&lt;/xref>,&nbsp;and&nbsp;in&nbsp;several&nbsp;species<span class="modifiedLevel2">&nbsp;</span>have&nbsp;a&nbsp;strong&nbsp;fragrance.&nbsp;Flowering&nbsp;varies<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">17</label>&nbsp;&nbsp;&nbsp;</span>between&nbsp;mid&nbsp;spring&nbsp;to&nbsp;early&nbsp;summer,&nbsp;depending&nbsp;on&nbsp;the<span class="modifiedLevel2">&nbsp;</span>species.&nbsp;The&nbsp;fruit&nbsp;is&nbsp;a&nbsp;dry,&nbsp;brown&nbsp;capsule<span class="modifiedLevel2">,<br>
+            <label class="lineNoLeft">18</label>&nbsp;&nbsp;&nbsp;</span>splitting&nbsp;in&nbsp;two&nbsp;at&nbsp;maturity&nbsp;to&nbsp;release&nbsp;the&nbsp;two<span class="modifiedLevel2">&nbsp;</span>winged&nbsp;seeds.&lt;/p></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">19</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;keyref="flowers.panicle"&nbsp;format="dita">panicle&lt;/xref>,&nbsp;and&nbsp;in&nbsp;several&nbsp;species<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">20</label>&nbsp;&nbsp;&nbsp;</span>have&nbsp;a&nbsp;strong&nbsp;fragrance.&nbsp;Flowering&nbsp;varies<span class="modifiedLevel2">&nbsp;</span>between&nbsp;mid&nbsp;spring&nbsp;to&nbsp;early&nbsp;summer,&nbsp;depending&nbsp;on&nbsp;the<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">21</label>&nbsp;&nbsp;&nbsp;</span>species.&nbsp;The&nbsp;fruit&nbsp;is&nbsp;a&nbsp;dry,&nbsp;brown&nbsp;capsule<span class="modifiedLevel2">,&nbsp;</span>splitting&nbsp;in&nbsp;two&nbsp;at&nbsp;maturity&nbsp;to&nbsp;release&nbsp;the&nbsp;two<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">22</label>&nbsp;&nbsp;&nbsp;</span>winged&nbsp;seeds.&lt;/p></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsModified">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">21</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;keyref="flowers.cultivar"&nbsp;format="dita">cultivars&lt;/xref>&nbsp;have&nbsp;been&nbsp;developed.&nbsp;The<span class="modifiedLevel2">&nbsp;</span>term&nbsp;&lt;b>French<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">22</label>&nbsp;&nbsp;&nbsp;&nbsp;</span>lilac&lt;/b>&nbsp;is&nbsp;often&nbsp;used&nbsp;to&nbsp;refer&nbsp;to&nbsp;modern&nbsp;double-flowered&nbsp;cultivars,&nbsp;thanks&nbsp;to<span class="modifiedLevel2">&nbsp;</span>the&nbsp;work&nbsp;of<span class="modifiedLevel2"><br>
+            <label class="lineNoLeft">23</label>&nbsp;&nbsp;&nbsp;</span>prolific&nbsp;breeder&nbsp;Victor&nbsp;Lemoine.&lt;/p></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details detailsStatus" title="modified">&#8727;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">25</label><span class="modified">&nbsp;&nbsp;&nbsp;&nbsp;keyref="flowers.cultivar"&nbsp;format="dita">cultivars&lt;/xref>&nbsp;have&nbsp;been&nbsp;developed.&nbsp;The<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">26</label>&nbsp;&nbsp;&nbsp;</span>term&nbsp;&lt;b>French<span class="modifiedLevel2">&nbsp;</span>lilac&lt;/b>&nbsp;is&nbsp;often&nbsp;used&nbsp;to&nbsp;refer&nbsp;to&nbsp;modern&nbsp;double-flowered&nbsp;cultivars,&nbsp;thanks&nbsp;to<span class="modifiedLevel2"><br>
+            <label class="lineNoRight">27</label>&nbsp;&nbsp;&nbsp;</span>the&nbsp;work&nbsp;of<span class="modifiedLevel2">&nbsp;</span>prolific&nbsp;breeder&nbsp;Victor&nbsp;Lemoine.&lt;/p></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="detailsOutgoing">
+        <td class="details content">
+          <div>
+            <label class="lineNoLeft">41</label><span class="outgoing"><span class="outgoingLevel2">&lt;?oxy_options&nbsp;track_changes="on"?></span></span>
+          </div>
+        </td>
+        <td class="details detailsStatus" title="added to 1st file / deleted from 2nd one">+</td>
+        <td class="details detailsStatus" title="added to 1st file / deleted from 2nd one">&#8722;</td>
+        <td class="details content">
+          <div>
+            <label class="lineNoRight">45</label><span class="outgoing"><span class="outgoingLevel2">&nbsp;</span></span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
