@@ -9,7 +9,7 @@
     <publication id="webhelp" transtype="webhelp-responsive"/>
     <deliverable id="fff-1698733272045" name="fff">
         <context idref="MmeNHUyNytOuIxH"/>
-        <output href="webhelp-output"/>
-        <publication idref="webhelp"/>
+        <output href="pdf-output"/>
+        <publication idref="pdf"/>
     </deliverable>
 </project>
