@@ -11,7 +11,9 @@
     <deliverable id="fff-1698733272045" name="fff">
         <context idref="MmeNHUyNytOuIxH"/>
         <output href="pdf-output"/>
-        <publication idref="pdf"/>
+        <publication idref="pdf">
+            <param name="pdf.publishing.template" value="cf://templates/Oxygen"/>
+        </publication>
     </deliverable>
     <deliverable id="ppp-1698836582056" name="ppp">
         <context idref="MmeNHUyNytOuIxH"/>
