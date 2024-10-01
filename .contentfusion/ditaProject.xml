@@ -25,6 +25,8 @@
     <deliverable id="webhelp-1698836724993" name="webhelp">
         <context idref="MmeNHUyNytOuIxH"/>
         <output href="webhelp-output"/>
-        <publication idref="webhelp"/>
+        <publication idref="webhelp">
+            <param name="webhelp.publishing.template" value="cf://templates/Oxygen"/>
+        </publication>
     </deliverable>
 </project>
