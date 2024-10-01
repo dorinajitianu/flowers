@@ -12,21 +12,17 @@
         <context idref="MmeNHUyNytOuIxH"/>
         <output href="pdf-output"/>
         <publication idref="pdf">
-           
+            <param name="pdf.publishing.template" value="cf://templates/Oxygen"/>
         </publication>
     </deliverable>
     <deliverable id="ppp-1698836582056" name="ppp">
         <context idref="MmeNHUyNytOuIxH"/>
         <output href="pdf-output"/>
-        <publication idref="pdf">
-           
-        </publication>
+        <publication idref="pdf"/>
     </deliverable>
     <deliverable id="webhelp-1698836724993" name="webhelp">
         <context idref="MmeNHUyNytOuIxH"/>
         <output href="webhelp-output"/>
-        <publication idref="webhelp">
-           
-        </publication>
+        <publication idref="webhelp"/>
     </deliverable>
 </project>
